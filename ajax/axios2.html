@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Axios #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src="js/axios.js"></script>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Axios Get/Post</h1>
+    <div id="get"></div>
+    <div id="post"></div>
+    
+    <script>
+        function showResult(id, dada) {
+            const text = JSON.stringify(dada)
+            document.getElementById(id).innerHTML = text
+        }
+        
+        axios.get('parOuImpar', {
+            params: {
+                numero: 6
+            }
+        }).then(resp => showResult('get', resp.data))
+
+        // axios('parOuImpar?numero=2')
+        // .then(resp => showResult('get', resp.data))
+
+        axios.post('formulario', {
+            nome: 'Henrique',
+            sobrenome: 'Lima'
+        }).then(resp => showResult('post', resp.data))
+        
+        </script>
+</body>
